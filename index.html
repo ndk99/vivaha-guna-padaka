@@ -102,6 +102,12 @@
 
       <!-- Language Toggle & Source Tag -->
       <div class="flex items-center space-x-3">
+        <button type="button" id="openApiKeyModalBtn" class="px-3 py-1.5 rounded-lg bg-vedic-card hover:bg-slate-800 border border-vedic-border hover:border-amber-400/50 text-amber-200 text-xs font-semibold transition-all flex items-center gap-1.5">
+          <span>🔑</span>
+          <span class="hidden sm:inline">AI Key Settings</span>
+          <span id="apiKeyStatusDot" class="w-2 h-2 rounded-full bg-slate-500 inline-block"></span>
+        </button>
+
         <div class="inline-flex p-0.5 rounded-lg bg-vedic-card border border-vedic-border text-xs">
           <button id="langEnBtn" class="px-2.5 py-1 rounded-md font-semibold bg-vedic-gold text-vedic-night transition-all">EN</button>
           <button id="langKnBtn" class="px-2.5 py-1 rounded-md font-semibold text-slate-400 hover:text-slate-100 transition-all font-kannada">ಕನ್ನಡ</button>
@@ -229,25 +235,39 @@
               <span id="brideIndexBadge" class="font-mono font-bold text-rose-300">Row 1 (Mesha - Ashwini)</span>
             </div>
 
-            <!-- Future AI Inputs (DOB & Gothra) -->
-            <div class="pt-3 border-t border-vedic-border/60 space-y-3">
+            <!-- AI Inputs (DOB, Time, Place & Gothra) -->
+            <div class="pt-3 border-t border-vedic-border/60 space-y-2.5">
               <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1">
-                  <span>🤖</span> AI Analysis Inputs
+                  <span>🤖</span> AI Kundali Inputs
                 </span>
-                <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-medium">Placeholder</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30 font-medium">For AI Analysis</span>
               </div>
               <div>
-                <label for="brideDobInput" class="block text-xs font-semibold text-slate-300 mb-1">
+                <label for="brideDobInput" class="block text-[11px] font-semibold text-slate-300 mb-1">
                   Date of Birth (ಜನನ ದಿನಾಂಕ)
                 </label>
-                <input type="date" id="brideDobInput" class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3.5 py-2 text-sm text-slate-100 focus:outline-none focus:border-vedic-gold transition-colors">
+                <input type="date" id="brideDobInput" class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-vedic-gold transition-colors">
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label for="brideTimeInput" class="block text-[11px] font-semibold text-slate-300 mb-1">
+                    Birth Time (ಸಮಯ)
+                  </label>
+                  <input type="time" id="brideTimeInput" class="w-full bg-vedic-night border border-vedic-border rounded-xl px-2.5 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-vedic-gold transition-colors">
+                </div>
+                <div>
+                  <label for="bridePlaceInput" class="block text-[11px] font-semibold text-slate-300 mb-1">
+                    Birth Place (ಸ್ಥಳ)
+                  </label>
+                  <input type="text" id="bridePlaceInput" placeholder="e.g. Bengaluru" class="w-full bg-vedic-night border border-vedic-border rounded-xl px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-vedic-gold transition-colors">
+                </div>
               </div>
               <div>
-                <label for="brideGothraInput" class="block text-xs font-semibold text-slate-300 mb-1">
+                <label for="brideGothraInput" class="block text-[11px] font-semibold text-slate-300 mb-1">
                   Gothra (ಗೋತ್ರ)
                 </label>
-                <input type="text" id="brideGothraInput" placeholder="e.g. Kashyapa, Bharadwaja, Vashishta..." class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3.5 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-vedic-gold transition-colors">
+                <input type="text" id="brideGothraInput" placeholder="e.g. Kashyapa, Bharadwaja..." class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3 py-1.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-vedic-gold transition-colors">
               </div>
             </div>
           </div>
@@ -288,25 +308,39 @@
               <span id="groomIndexBadge" class="font-mono font-bold text-blue-300">Col 5 (Vrishabha - Rohini)</span>
             </div>
 
-            <!-- Future AI Inputs (DOB & Gothra) -->
-            <div class="pt-3 border-t border-vedic-border/60 space-y-3">
+            <!-- AI Inputs (DOB, Time, Place & Gothra) -->
+            <div class="pt-3 border-t border-vedic-border/60 space-y-2.5">
               <div class="flex items-center justify-between">
                 <span class="text-[11px] font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1">
-                  <span>🤖</span> AI Analysis Inputs
+                  <span>🤖</span> AI Kundali Inputs
                 </span>
-                <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20 font-medium">Placeholder</span>
+                <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/15 text-amber-300 border border-amber-500/30 font-medium">For AI Analysis</span>
               </div>
               <div>
-                <label for="groomDobInput" class="block text-xs font-semibold text-slate-300 mb-1">
+                <label for="groomDobInput" class="block text-[11px] font-semibold text-slate-300 mb-1">
                   Date of Birth (ಜನನ ದಿನಾಂಕ)
                 </label>
-                <input type="date" id="groomDobInput" class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3.5 py-2 text-sm text-slate-100 focus:outline-none focus:border-vedic-gold transition-colors">
+                <input type="date" id="groomDobInput" class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-vedic-gold transition-colors">
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div>
+                  <label for="groomTimeInput" class="block text-[11px] font-semibold text-slate-300 mb-1">
+                    Birth Time (ಸಮಯ)
+                  </label>
+                  <input type="time" id="groomTimeInput" class="w-full bg-vedic-night border border-vedic-border rounded-xl px-2.5 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-vedic-gold transition-colors">
+                </div>
+                <div>
+                  <label for="groomPlaceInput" class="block text-[11px] font-semibold text-slate-300 mb-1">
+                    Birth Place (ಸ್ಥಳ)
+                  </label>
+                  <input type="text" id="groomPlaceInput" placeholder="e.g. Mysuru" class="w-full bg-vedic-night border border-vedic-border rounded-xl px-2.5 py-1.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-vedic-gold transition-colors">
+                </div>
               </div>
               <div>
-                <label for="groomGothraInput" class="block text-xs font-semibold text-slate-300 mb-1">
+                <label for="groomGothraInput" class="block text-[11px] font-semibold text-slate-300 mb-1">
                   Gothra (ಗೋತ್ರ)
                 </label>
-                <input type="text" id="groomGothraInput" placeholder="e.g. Kashyapa, Bharadwaja, Vashishta..." class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3.5 py-2 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-vedic-gold transition-colors">
+                <input type="text" id="groomGothraInput" placeholder="e.g. Kashyapa, Bharadwaja..." class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3 py-1.5 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-vedic-gold transition-colors">
               </div>
             </div>
           </div>
@@ -352,31 +386,90 @@
         </div>
       </div>
 
-      <!-- AI Astrological Analysis Roadmap Card -->
-      <div class="mt-6 bg-gradient-to-r from-vedic-card/90 via-[#131c38] to-vedic-card/90 border border-amber-500/30 rounded-2xl p-5 sm:p-6 shadow-xl">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div class="flex items-start gap-3.5">
-            <div class="w-11 h-11 rounded-xl bg-amber-500/15 border border-amber-500/30 text-amber-300 flex items-center justify-center text-2xl flex-shrink-0">
-              🤖
+      <!-- AI Astrological Deep Analysis Card -->
+      <div class="mt-8 bg-gradient-to-br from-vedic-card via-[#121a36] to-[#0d1429] border border-amber-500/40 rounded-2xl p-5 sm:p-7 shadow-2xl relative overflow-hidden" id="aiAnalysisCard">
+        <div class="absolute top-0 right-0 w-48 h-48 bg-amber-500/5 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-vedic-border/70">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500/20 to-vedic-gold/10 border border-vedic-gold/40 text-amber-300 flex items-center justify-center text-2xl flex-shrink-0 shadow-inner">
+              🔮
             </div>
             <div>
               <div class="flex flex-wrap items-center gap-2">
-                <h4 class="font-bold text-amber-200 text-sm sm:text-base">AI Astrological Kundali & Sagotra Analysis</h4>
-                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wide">Coming Soon</span>
+                <h4 class="font-cinzel font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-vedic-gold to-amber-300 text-base sm:text-lg">
+                  AI Astrological Kundali & Sagotra Synthesis
+                </h4>
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                  Google Gemini Powered
+                </span>
               </div>
-              <p class="text-xs text-slate-300 mt-1 leading-relaxed max-w-3xl">
-                The Date of Birth and Gothra details entered above will feed an upcoming AI horoscope engine. It will automatically check for <strong>Sagotra (same gothra) prohibitions</strong>, evaluate <strong>Manglik / Kuja Dosha</strong> from birth planetary charts, and generate deep qualitative advice.
+              <p class="text-xs text-slate-300 mt-1 max-w-2xl leading-relaxed">
+                Combines the verified Ontikoppal Ashtakoota score with AI astrological synthesis: Sagotra verification, Kuja (Manglik) considerations, emotional temperament, and auspicious Vedic remedies.
               </p>
             </div>
           </div>
-          <button id="aiAnalyzeBtn" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-vedic-gold/20 to-amber-500/20 hover:from-vedic-gold/30 hover:to-amber-500/30 border border-vedic-gold/40 text-amber-200 text-xs font-bold transition-all whitespace-nowrap flex items-center justify-center gap-2 shadow-md">
-            <span>⚡ Test AI Inputs</span>
-          </button>
+
+          <!-- Controls & Actions -->
+          <div class="flex flex-wrap items-center gap-2.5 self-start md:self-auto">
+            <button type="button" id="configKeyBtn" class="px-3.5 py-2 rounded-xl bg-vedic-night border border-vedic-border hover:border-vedic-gold/50 text-xs font-semibold text-slate-300 hover:text-amber-200 transition-all flex items-center gap-1.5">
+              <span>⚙️</span>
+              <span id="apiKeyBtnText">Configure API Key</span>
+            </button>
+            <button type="button" id="runAiAnalysisBtn" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-vedic-gold to-amber-500 hover:brightness-110 text-vedic-night font-bold text-xs shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2">
+              <span>✨</span>
+              <span>Generate AI Reading</span>
+            </button>
+          </div>
         </div>
 
-        <!-- Simulated AI preview box -->
-        <div id="aiPreviewBox" class="hidden mt-4 pt-4 border-t border-vedic-border/70 text-xs">
-          <!-- Dynamically populated by JS -->
+        <!-- Interactive AI Output Area -->
+        <div id="aiPreviewBox" class="hidden"></div>
+        <div id="aiOutputArea" class="mt-5 space-y-4">
+          <!-- Initial Prompt / Guide State -->
+          <div id="aiEmptyPromptState" class="p-5 rounded-xl bg-vedic-night/70 border border-vedic-border/60 text-xs text-slate-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div class="space-y-1">
+              <p class="font-semibold text-amber-200">🚀 Ready for AI Synthesis</p>
+              <p class="text-slate-400">
+                Enter Bride & Groom birth dates and gothras, then click <strong>Generate AI Reading</strong>. You can use your own free Google Gemini API key or preview a sample analysis.
+              </p>
+            </div>
+            <button type="button" id="aiAnalyzeBtn" class="px-4 py-2 rounded-lg bg-vedic-card hover:bg-slate-800 border border-vedic-border text-xs font-medium text-amber-300 whitespace-nowrap transition-all">
+              ⚡ Test AI Inputs
+            </button>
+            <button type="button" id="demoAnalysisBtn" class="hidden px-4 py-2 rounded-lg bg-vedic-card hover:bg-slate-800 border border-vedic-border text-xs font-medium text-amber-300 whitespace-nowrap transition-all">
+              ⚡ View Sample AI Report
+            </button>
+          </div>
+
+          <!-- Loading Spinner -->
+          <div id="aiLoadingState" class="hidden p-8 rounded-xl bg-vedic-night/80 border border-amber-500/30 text-center space-y-3">
+            <div class="inline-block animate-spin text-3xl">🪐</div>
+            <h5 class="text-sm font-bold text-amber-200">Synthesizing Astrological Kundali...</h5>
+            <p class="text-xs text-slate-400 max-w-md mx-auto">
+              Connecting with Google Gemini, verifying Ontikoppal Ashtakoota score, checking Sagotra prohibitions, and generating planetary compatibility advice.
+            </p>
+          </div>
+
+          <!-- Rendered AI Report Box -->
+          <div id="aiReportBox" class="hidden space-y-4">
+            <div class="p-5 sm:p-6 rounded-xl bg-vedic-night/90 border border-vedic-border text-xs text-slate-200 leading-relaxed shadow-inner">
+              <div class="flex items-center justify-between pb-3 mb-4 border-b border-vedic-border">
+                <span class="font-bold text-amber-200 text-sm flex items-center gap-2">
+                  <span>📜</span> Comprehensive Vedic Marriage Analysis
+                </span>
+                <div class="flex items-center gap-2">
+                  <span id="aiReportBadge" class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30">Gemini 1.5 Flash</span>
+                  <button type="button" id="copyAiReportBtn" class="px-2.5 py-1 rounded bg-vedic-card hover:bg-slate-800 border border-vedic-border text-slate-300 text-[11px] font-medium transition-all" title="Copy AI Analysis">
+                    📋 Copy
+                  </button>
+                </div>
+              </div>
+              <div id="aiReportContent" class="space-y-4 leading-relaxed">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1038,10 +1131,14 @@
       });
     });
 
-    // Inputs for DOB and Gothra
+    // Inputs for DOB, Time, Place and Gothra
     const brideDobInput = document.getElementById('brideDobInput');
+    const brideTimeInput = document.getElementById('brideTimeInput');
+    const bridePlaceInput = document.getElementById('bridePlaceInput');
     const brideGothraInput = document.getElementById('brideGothraInput');
     const groomDobInput = document.getElementById('groomDobInput');
+    const groomTimeInput = document.getElementById('groomTimeInput');
+    const groomPlaceInput = document.getElementById('groomPlaceInput');
     const groomGothraInput = document.getElementById('groomGothraInput');
 
     quickSwapBtn.addEventListener('click', () => {
@@ -1058,12 +1155,20 @@
       updateNakshatraDropdown('groom');
       groomNakshatraSelect.value = bN;
 
-      // Swap DOB and Gothra
+      // Swap DOB, Time, Place and Gothra
       const bDob = brideDobInput.value;
+      const bTime = brideTimeInput.value;
+      const bPlace = bridePlaceInput.value;
       const bGothra = brideGothraInput.value;
+
       brideDobInput.value = groomDobInput.value;
+      brideTimeInput.value = groomTimeInput.value;
+      bridePlaceInput.value = groomPlaceInput.value;
       brideGothraInput.value = groomGothraInput.value;
+
       groomDobInput.value = bDob;
+      groomTimeInput.value = bTime;
+      groomPlaceInput.value = bPlace;
       groomGothraInput.value = bGothra;
 
       calculateMatch();
@@ -1084,10 +1189,22 @@
       const score = gunaScoreDisplay.textContent;
       const verdict = verdictTag.textContent.trim();
 
-      const bDobStr = brideDobInput.value ? ` (DOB: ${brideDobInput.value})` : '';
-      const bGothraStr = brideGothraInput.value.trim() ? ` (Gothra: ${brideGothraInput.value.trim()})` : '';
-      const gDobStr = groomDobInput.value ? ` (DOB: ${groomDobInput.value})` : '';
-      const gGothraStr = groomGothraInput.value.trim() ? ` (Gothra: ${groomGothraInput.value.trim()})` : '';
+      const bDetails = [
+        brideDobInput.value ? `DOB: ${brideDobInput.value}` : '',
+        brideTimeInput.value ? `Time: ${brideTimeInput.value}` : '',
+        bridePlaceInput.value.trim() ? `Place: ${bridePlaceInput.value.trim()}` : '',
+        brideGothraInput.value.trim() ? `Gothra: ${brideGothraInput.value.trim()}` : ''
+      ].filter(Boolean).join(', ');
+
+      const gDetails = [
+        groomDobInput.value ? `DOB: ${groomDobInput.value}` : '',
+        groomTimeInput.value ? `Time: ${groomTimeInput.value}` : '',
+        groomPlaceInput.value.trim() ? `Place: ${groomPlaceInput.value.trim()}` : '',
+        groomGothraInput.value.trim() ? `Gothra: ${groomGothraInput.value.trim()}` : ''
+      ].filter(Boolean).join(', ');
+
+      const bDobStr = bDetails ? ` [${bDetails}]` : '';
+      const gDobStr = gDetails ? ` [${gDetails}]` : '';
 
       const text = `Vivaha Guna Padaka Match:
 Bride: ${bDiv.full_name}${bDobStr}${bGothraStr}
@@ -1166,78 +1283,422 @@ Source: Ontikoppal Panchanga 2026-27 (Page 88)`;
     });
 
 
-    // AI Analysis simulation button handler
-    const aiAnalyzeBtn = document.getElementById('aiAnalyzeBtn');
-    const aiPreviewBox = document.getElementById('aiPreviewBox');
+        // ==========================================
+    // GEMINI AI INTEGRATION & KEY MANAGEMENT
+    // ==========================================
+    const apiKeyModal = document.getElementById('apiKeyModal');
+    const openApiKeyModalBtn = document.getElementById('openApiKeyModalBtn');
+    const closeApiKeyModalBtn = document.getElementById('closeApiKeyModalBtn');
+    const configKeyBtn = document.getElementById('configKeyBtn');
+    const apiKeyBtnText = document.getElementById('apiKeyBtnText');
+    const apiKeyStatusDot = document.getElementById('apiKeyStatusDot');
+    const geminiApiKeyInput = document.getElementById('geminiApiKeyInput');
+    const geminiModelSelect = document.getElementById('geminiModelSelect');
+    const saveApiKeyBtn = document.getElementById('saveApiKeyBtn');
+    const testApiKeyBtn = document.getElementById('testApiKeyBtn');
+    const clearApiKeyBtn = document.getElementById('clearApiKeyBtn');
 
-    aiAnalyzeBtn.addEventListener('click', () => {
-      const bDob = brideDobInput.value;
-      const bGothra = brideGothraInput.value.trim();
-      const gDob = groomDobInput.value;
-      const gGothra = groomGothraInput.value.trim();
+    const runAiAnalysisBtn = document.getElementById('runAiAnalysisBtn');
+    const demoAnalysisBtn = document.getElementById('demoAnalysisBtn');
+    const aiEmptyPromptState = document.getElementById('aiEmptyPromptState');
+    const aiLoadingState = document.getElementById('aiLoadingState');
+    const aiReportBox = document.getElementById('aiReportBox');
+    const aiReportContent = document.getElementById('aiReportContent');
+    const aiReportBadge = document.getElementById('aiReportBadge');
+    const copyAiReportBtn = document.getElementById('copyAiReportBtn');
+
+    function loadSavedApiKey() {
+      try {
+        const savedKey = localStorage.getItem('gemini_api_key') || '';
+        const savedModel = localStorage.getItem('gemini_model') || 'gemini-1.5-flash';
+        geminiApiKeyInput.value = savedKey;
+        geminiModelSelect.value = savedModel;
+        updateKeyStatusUI(Boolean(savedKey));
+      } catch (e) {
+        console.warn('localStorage not available', e);
+      }
+    }
+
+    function updateKeyStatusUI(hasKey) {
+      if (hasKey) {
+        apiKeyStatusDot.className = 'w-2 h-2 rounded-full bg-emerald-400 inline-block';
+        apiKeyBtnText.textContent = 'API Key Configured ✅';
+      } else {
+        apiKeyStatusDot.className = 'w-2 h-2 rounded-full bg-amber-400 inline-block';
+        apiKeyBtnText.textContent = 'Configure API Key';
+      }
+    }
+
+    openApiKeyModalBtn.addEventListener('click', () => {
+      apiKeyModal.classList.remove('hidden');
+    });
+
+    configKeyBtn.addEventListener('click', () => {
+      apiKeyModal.classList.remove('hidden');
+    });
+
+    closeApiKeyModalBtn.addEventListener('click', () => {
+      apiKeyModal.classList.add('hidden');
+    });
+
+    apiKeyModal.addEventListener('click', (e) => {
+      if (e.target === apiKeyModal) {
+        apiKeyModal.classList.add('hidden');
+      }
+    });
+
+    saveApiKeyBtn.addEventListener('click', () => {
+      const key = geminiApiKeyInput.value.trim();
+      const model = geminiModelSelect.value;
+      try {
+        if (key) {
+          localStorage.setItem('gemini_api_key', key);
+        } else {
+          localStorage.removeItem('gemini_api_key');
+        }
+        localStorage.setItem('gemini_model', model);
+        updateKeyStatusUI(Boolean(key));
+        showToast('Settings saved successfully!');
+        apiKeyModal.classList.add('hidden');
+      } catch (e) {
+        showToast('Error saving settings to browser storage.');
+      }
+    });
+
+    clearApiKeyBtn.addEventListener('click', () => {
+      try {
+        localStorage.removeItem('gemini_api_key');
+        geminiApiKeyInput.value = '';
+        updateKeyStatusUI(false);
+        showToast('API Key removed.');
+      } catch (e) {
+        console.error(e);
+      }
+    });
+
+    testApiKeyBtn.addEventListener('click', async () => {
+      const key = geminiApiKeyInput.value.trim();
+      const model = geminiModelSelect.value;
+      if (!key) {
+        showToast('Please enter an API key first.');
+        return;
+      }
+
+      testApiKeyBtn.disabled = true;
+      testApiKeyBtn.textContent = 'Testing...';
+
+      try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
+        const resp = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: 'Respond with the word "CONNECTED" in all caps.' }] }]
+          })
+        });
+
+        if (resp.ok) {
+          showToast('API Key is valid and working! ✅');
+        } else {
+          const errData = await resp.json().catch(() => ({}));
+          showToast(`Error: ${errData.error?.message || 'Invalid key or unauthorized'}`);
+        }
+      } catch (err) {
+        showToast(`Connection failed: ${err.message}`);
+      } finally {
+        testApiKeyBtn.disabled = false;
+        testApiKeyBtn.textContent = 'Test Key';
+      }
+    });
+
+    // Run Live AI Analysis
+    runAiAnalysisBtn.addEventListener('click', async () => {
+      let key = '';
+      let model = 'gemini-1.5-flash';
+      try {
+        key = localStorage.getItem('gemini_api_key') || '';
+        model = localStorage.getItem('gemini_model') || 'gemini-1.5-flash';
+      } catch (e) {
+        console.warn(e);
+      }
+
+      if (!key) {
+        // Open modal and guide user
+        apiKeyModal.classList.remove('hidden');
+        showToast('Please enter your free Google Gemini API key to run live AI analysis.');
+        return;
+      }
+
+      await executeAiAstrologicalQuery(key, model);
+    });
+
+    demoAnalysisBtn.addEventListener('click', () => {
+      renderSampleReport();
+    });
+    const aiAnalyzeBtn = document.getElementById('aiAnalyzeBtn');
+    if (aiAnalyzeBtn) {
+      aiAnalyzeBtn.addEventListener('click', () => {
+        renderSampleReport();
+      });
+    }
+
+    async function executeAiAstrologicalQuery(key, model) {
+      aiEmptyPromptState.classList.add('hidden');
+      aiReportBox.classList.add('hidden');
+      aiLoadingState.classList.remove('hidden');
 
       const bDiv = DATA.divisions[getDivisionIndex(brideRashiSelect.value, brideNakshatraSelect.value)];
       const gDiv = DATA.divisions[getDivisionIndex(groomRashiSelect.value, groomNakshatraSelect.value)];
+      const raw = rawCellValue.textContent;
       const score = gunaScoreDisplay.textContent;
+      const verdict = verdictTag.textContent.trim();
 
-      let sagotraHtml = '';
-      if (bGothra && gGothra) {
-        if (bGothra.toLowerCase() === gGothra.toLowerCase()) {
-          sagotraHtml = `
-            <div class="p-3 rounded-lg bg-rose-950/60 border border-rose-500/40 text-rose-200 mb-2">
-              <strong>⚠️ Sagotra Conflict Detected:</strong> Both Bride and Groom belong to the same Gothra (<em>${bGothra}</em>). Traditional Shastras forbid Sagotra vivaha.
-            </div>`;
-        } else {
-          sagotraHtml = `
-            <div class="p-3 rounded-lg bg-emerald-950/60 border border-emerald-500/40 text-emerald-200 mb-2">
-              <strong>✅ Gothra Check Passed:</strong> Different Gothras (Bride: <em>${bGothra}</em> vs Groom: <em>${gGothra}</em>). Fully permissible.
-            </div>`;
+      const bDob = brideDobInput.value || 'Not provided';
+      const bTime = brideTimeInput.value || 'Not provided';
+      const bPlace = bridePlaceInput.value.trim() || 'Not provided';
+      const bGothra = brideGothraInput.value.trim() || 'Not specified';
+
+      const gDob = groomDobInput.value || 'Not provided';
+      const gTime = groomTimeInput.value || 'Not provided';
+      const gPlace = groomPlaceInput.value.trim() || 'Not provided';
+      const gGothra = groomGothraInput.value.trim() || 'Not specified';
+
+      const prompt = `You are a revered Vedic Astrologer (Jyotisha Praveena) specializing in Mysore Ontikoppal Panchanga marriage compatibility tradition.
+Analyze the following marriage match thoroughly and objectively.
+
+BRIDE DETAILS:
+- Moon Sign (Rashi): ${bDiv.rashi_kn} (${bDiv.rashi_en})
+- Star (Nakshatra & Pada): ${bDiv.nak_kn} (${bDiv.nak_en}) - Pada ${bDiv.pada}
+- Date of Birth: ${bDob}
+- Time of Birth: ${bTime}
+- Place of Birth: ${bPlace}
+- Gothra: ${bGothra}
+
+GROOM DETAILS:
+- Moon Sign (Rashi): ${gDiv.rashi_kn} (${gDiv.rashi_en})
+- Star (Nakshatra & Pada): ${gDiv.nak_kn} (${gDiv.nak_en}) - Pada ${gDiv.pada}
+- Date of Birth: ${gDob}
+- Time of Birth: ${gTime}
+- Place of Birth: ${gPlace}
+- Gothra: ${gGothra}
+
+CANONICAL ONTIKOPPAL PANCHANGA DATA:
+- Total Ashtakoota Score: ${score} / 36 Gunas
+- Table Cell Value: "${raw}"
+- Preliminary Status: ${verdict}
+(Note: Values in square brackets [ ] indicate inauspicious cancellations due to severe Dosha like Vedha or Stree-Purva; angle brackets < > denote auspicious Maha Nakshatra exemptions).
+
+Please produce a comprehensive, structured consultation report formatted with clean Markdown headings, bullet points, and highlight badges:
+1. ### 👑 Executive Astrological Verdict & Ontikoppal Synthesis
+Evaluate the 36 Guna total and explain whether this match is auspicious, borderline, or obstructed.
+
+2. ### 🧬 Gothra & Lineage (Sagotra) Evaluation
+Check bride and groom gothras. Explain whether Sagotra vivaha applies, why same-gothra marriage is traditionally prohibited, or confirm that different gothras ensure auspicious lineage genetics.
+
+3. ### 🪐 Planetary Harmony & Kuja (Manglik) Assessment
+Examine Mars / Kuja positions based on the birth details and Moon signs. State if Kuja Dosha is present in either chart, whether mutual cancellation (Dosha Samyam) applies, and the implications for marital longevity.
+
+4. ### 🕊️ Temperament & Psychological Harmony (Koota Deep Dive)
+Analyze the mental connection, Graha Maitri (planetary friendship between moon lords), and Gana alignment (Deva, Manushya, Rakshasa).
+
+5. ### 🕉️ Traditional Pariharas & Auspicious Guidance
+Provide 2-3 authentic South Indian / Karnataka Vedic pariharas (remedies), suggested deities to worship (e.g., Sri Lakshmi Narasimha, Subrahmanya, or Parvati-Parameshwara), and practical advice for marital prosperity.
+
+Maintain a dignified, respectful, and authoritative astrological tone.`;
+
+      try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }]
+          })
+        });
+
+        if (!response.ok) {
+          const errData = await response.json().catch(() => ({}));
+          throw new Error(errData.error?.message || `HTTP ${response.status}`);
         }
+
+        const data = await response.json();
+        const outputText = data.candidates?.[0]?.content?.parts?.[0]?.text || 'No response returned from the AI model.';
+
+        aiReportBadge.textContent = model;
+        renderFormattedAiReport(outputText);
+      } catch (err) {
+        aiLoadingState.classList.add('hidden');
+        aiEmptyPromptState.classList.remove('hidden');
+        showToast(`AI Analysis failed: ${err.message}`);
+      }
+    }
+
+    function renderFormattedAiReport(markdownText) {
+      aiLoadingState.classList.add('hidden');
+      aiReportBox.classList.remove('hidden');
+
+      // Convert basic markdown to styled HTML
+      let html = markdownText
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/### (.*?)\n/g, '<h5 class="text-amber-200 font-cinzel font-bold text-sm mt-4 mb-2 pb-1 border-b border-vedic-border/60 flex items-center gap-1.5">$1</h5>')
+        .replace(/## (.*?)\n/g, '<h4 class="text-amber-300 font-cinzel font-bold text-base mt-5 mb-2">$1</h4>')
+        .replace(/\*\*(.*?)\*\*/g, '<strong class="text-amber-100">$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em class="text-slate-300">$1</em>')
+        .replace(/`([^`]+)`/g, '<code class="bg-vedic-night px-1.5 py-0.5 rounded text-amber-300 font-mono text-[11px]">$1</code>')
+        .replace(/^\s*[-*]\s+(.*)$/gm, '<li class="ml-4 list-disc text-slate-300 my-1">$1</li>')
+        .replace(/\n\n/g, '<p class="my-2 text-slate-300 leading-relaxed"></p>');
+
+      aiReportContent.innerHTML = html;
+
+      // Scroll smoothly to analysis
+      document.getElementById('aiAnalysisCard').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function renderSampleReport() {
+      const bDiv = DATA.divisions[getDivisionIndex(brideRashiSelect.value, brideNakshatraSelect.value)];
+      const gDiv = DATA.divisions[getDivisionIndex(groomRashiSelect.value, groomNakshatraSelect.value)];
+      const raw = rawCellValue.textContent;
+      const score = gunaScoreDisplay.textContent;
+      const bGothra = brideGothraInput.value.trim() || 'Kashyapa';
+      const gGothra = groomGothraInput.value.trim() || 'Bharadwaja';
+
+      const isAshubha = raw.includes('[') && raw.includes(']');
+      const isMaha = raw.includes('<') && raw.includes('>');
+
+      let verdictText = '';
+      if (isAshubha) {
+        verdictText = `The raw score is **${score}/36**, but it is placed inside square brackets **${raw}**. In the Ontikoppal tradition (Page 88), this denotes an explicit astrological exclusion (such as Vedha, Stree-Purva, or Eka-Nakshatra Dosha) that overrides the numeric score. Proceeding requires comprehensive dosha parihara.`;
+      } else if (isMaha) {
+        verdictText = `Although the raw numeric score is **${score}/36**, it is enclosed in angle brackets **${raw}**. Under Ontikoppal Panchanga rules, this enjoys the auspicious **Maha Nakshatra Exemption** (ಮಹಾನಕ್ಷತ್ರ ವಿನಾಯಿತಿ), making the union traditionally compatible and blessed.`;
+      } else if (parseInt(score, 10) >= 18) {
+        verdictText = `The total Ashtakoota compatibility score is **${score} out of 36**, comfortably exceeding the canonical threshold of 18 points. Without bracketed disqualifiers, this represents an auspicious and harmonious pairing.`;
       } else {
-        sagotraHtml = `
-          <div class="p-3 rounded-lg bg-vedic-night/80 border border-vedic-border text-slate-300 mb-2">
-            💡 <em>Enter both Gothras to trigger automatic Sagotra compatibility validation.</em>
-          </div>`;
+        verdictText = `The total score is **${score} out of 36**, which falls below the traditional minimum threshold of 18 points. Additional individual planetary chart evaluation is advised before formalizing alliances.`;
       }
 
-      let dobHtml = '';
-      if (bDob && gDob) {
-        const dBride = new Date(bDob);
-        const dGroom = new Date(gDob);
-        const diffYears = ((dGroom - dBride) / (1000 * 60 * 60 * 24 * 365.25)).toFixed(1);
-        dobHtml = `
-          <div class="p-3 rounded-lg bg-vedic-night/80 border border-vedic-border text-slate-300 mb-2">
-            📅 <strong>Birth Analysis:</strong> Bride (${bDob}) & Groom (${gDob}). Chronological Age Delta: ${Math.abs(diffYears)} years. Full planetary positions (Lagna, Kuja/Mars placement for Manglik Dosha) will be synthesized when the AI Kundali API is active.
-          </div>`;
+      let gothraText = '';
+      if (bGothra.toLowerCase() === gGothra.toLowerCase()) {
+        gothraText = `⚠️ **Sagotra Conflict Detected:** Both families share the **${bGothra}** Gothra. Traditional Shastras prohibit marriage within the same rishi pravara (Sagotra vivaha) to prevent genetic and spiritual stagnation.`;
       } else {
-        dobHtml = `
-          <div class="p-3 rounded-lg bg-vedic-night/80 border border-vedic-border text-slate-300 mb-2">
-            💡 <em>Enter Date of Birth to enable AI planetary placement and Manglik Dosha calculations.</em>
-          </div>`;
+        gothraText = `✅ **Different Gothras Confirmed:** Bride represents **${bGothra}** and Groom represents **${gGothra}**. There is zero Sagotra prohibition, ensuring full spiritual and lineage compatibility.`;
       }
 
-      aiPreviewBox.innerHTML = `
-        <div class="bg-vedic-night/90 rounded-xl p-4 border border-amber-500/30 space-y-3">
-          <div class="flex items-center justify-between border-b border-vedic-border/60 pb-2">
-            <span class="font-bold text-amber-200 text-sm flex items-center gap-1.5">
-              <span>✨</span> Simulated AI Kundali Summary
-            </span>
-            <span class="text-[11px] text-slate-400 font-mono">Panchanga 36 Guna: ${score}/36</span>
-          </div>
-          ${sagotraHtml}
-          ${dobHtml}
-          <div class="text-[11px] text-amber-200/80 italic">
-            This module stores your DOB and Gothra inputs in readiness for the AI analysis endpoint!
-          </div>
-        </div>
-      `;
-      aiPreviewBox.classList.remove('hidden');
+      const sampleMarkdown = `### 👑 Executive Astrological Verdict & Ontikoppal Synthesis
+${verdictText}
+* **Bride:** ${bDiv.full_name}
+* **Groom:** ${gDiv.full_name}
+* **Ontikoppal Padaka Metric:** ${score} / 36 (${raw})
+
+### 🧬 Gothra & Lineage (Sagotra) Evaluation
+${gothraText}
+In Vedic lineage science, different gothras foster genetic vitality, while shared gothras trace back to a common ancestral Rishi, creating spiritual fraternity.
+
+### 🪐 Planetary Harmony & Kuja (Manglik) Assessment
+* **Moon Sign Relationship:** Governed by Moon lord harmony. The disposition between **${bDiv.rashi_en}** and **${gDiv.rashi_en}** provides emotional balance and mutual resilience.
+* **Kuja Dosha (Mars) Indications:** Birth times and ascendant (Lagna) charts should be examined for Mars in houses 1, 2, 4, 7, 8, or 12. If both charts possess symmetrical Kuja placements, mutual cancellation (**Kuja Dosha Samyam**) occurs.
+
+### 🕊️ Temperament & Psychological Harmony
+* **Mental Affinity (Dina / Tara):** Auspicious daily energy and companionable longevity.
+* **Graha Maitri & Gana:** Mutual understanding is supported by planetary friendships, fostering patience and domestic harmony.
+
+### 🕉️ Traditional Pariharas & Auspicious Guidance
+1. **Sri Lakshmi Narasimha Swamy Kalyanam:** Recommended for couples entering vivaha to remove all subtle doshas and cultivate peace.
+2. **Kuja / Mangala Shanti:** Chanting the *Subrahmanya Gayatri* or offering seva at Kukke Sri Subrahmanya Temple aids in dissolving latent afflictions.
+3. **Daily Sandhya Sankalpa:** Practice mutual respect and unity of purpose in both families.`;
+
+      aiEmptyPromptState.classList.add('hidden');
+      aiReportBadge.textContent = 'Simulated Sample Reading';
+      renderFormattedAiReport(sampleMarkdown);
+      showToast('Sample AI Report generated!');
+    }
+
+    copyAiReportBtn.addEventListener('click', () => {
+      const text = aiReportContent.innerText;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => showToast('AI Report copied to clipboard!'));
+      } else {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('AI Report copied to clipboard!');
+      }
     });
 
+    // Load saved key on page load
+    loadSavedApiKey();
     // Initial Load
     initSelectors();
     renderMatrix();
     renderAshubhaCatalog();
   </script>
+
+  <!-- API KEY SETTINGS MODAL -->
+  <div id="apiKeyModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-all">
+    <div class="w-full max-w-lg bg-[#0e1630] border border-amber-500/40 rounded-2xl p-6 shadow-2xl space-y-4 relative">
+      <div class="flex items-center justify-between border-b border-vedic-border/70 pb-3">
+        <h4 class="font-cinzel font-bold text-amber-200 text-base flex items-center gap-2">
+          <span>🔑</span> Google Gemini API Key
+        </h4>
+        <button type="button" id="closeApiKeyModalBtn" class="text-slate-400 hover:text-white text-lg font-bold p-1">&times;</button>
+      </div>
+
+      <div class="text-xs text-slate-300 space-y-2.5">
+        <p>
+          To generate live AI astrological readings directly on GitHub Pages without a backend server, provide your free Google Gemini API key.
+        </p>
+        <div class="p-3 rounded-xl bg-vedic-night/90 border border-vedic-border space-y-1.5 text-slate-300 text-[11px]">
+          <p class="font-semibold text-amber-300">How to get a 100% Free Gemini API Key:</p>
+          <ol class="list-decimal list-inside space-y-1 text-slate-400">
+            <li>Visit <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="text-amber-300 underline font-semibold">Google AI Studio (aistudio.google.com)</a></li>
+            <li>Sign in with your Google account and click <strong>Create API Key</strong></li>
+            <li>Copy the key and paste it below.</li>
+          </ol>
+        </div>
+        <p class="text-[11px] text-emerald-300/90 flex items-center gap-1.5">
+          <span>🔒</span> Stored locally in your browser (never sent to any external server other than Google's official Gemini endpoint).
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <div>
+          <label for="geminiApiKeyInput" class="block text-xs font-semibold text-slate-300 mb-1">
+            Gemini API Key
+          </label>
+          <input type="password" id="geminiApiKeyInput" placeholder="AIzaSy..." class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3.5 py-2 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-vedic-gold font-mono">
+        </div>
+
+        <div>
+          <label for="geminiModelSelect" class="block text-xs font-semibold text-slate-300 mb-1">
+            Gemini Model
+          </label>
+          <select id="geminiModelSelect" class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3.5 py-2 text-xs text-slate-200 focus:outline-none focus:border-vedic-gold">
+            <option value="gemini-1.5-flash">Gemini 1.5 Flash (Fast, Free, High Quota — Recommended)</option>
+            <option value="gemini-2.0-flash">Gemini 2.0 Flash (Next-Gen High Performance)</option>
+            <option value="gemini-1.5-pro">Gemini 1.5 Pro (Deep Reasoning)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="pt-3 border-t border-vedic-border/70 flex items-center justify-between gap-3">
+        <button type="button" id="clearApiKeyBtn" class="px-3 py-2 rounded-xl bg-rose-950/40 hover:bg-rose-900/60 border border-rose-800 text-rose-300 text-xs font-medium transition-all">
+          Clear Key
+        </button>
+        <div class="flex items-center gap-2">
+          <button type="button" id="testApiKeyBtn" class="px-3.5 py-2 rounded-xl bg-vedic-card hover:bg-slate-800 border border-vedic-border text-slate-300 text-xs font-medium transition-all">
+            Test Key
+          </button>
+          <button type="button" id="saveApiKeyBtn" class="px-5 py-2 rounded-xl bg-gradient-to-r from-vedic-gold to-amber-500 text-vedic-night text-xs font-bold shadow-md hover:brightness-110 transition-all">
+            Save Settings
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
