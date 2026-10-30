@@ -123,8 +123,8 @@
       <div class="flex items-center space-x-3">
         <button type="button" id="openApiKeyModalBtn"
           class="px-3 py-1.5 rounded-lg bg-vedic-card hover:bg-slate-800 border border-vedic-border hover:border-amber-400/50 text-amber-200 text-xs font-semibold transition-all flex items-center gap-1.5">
-          <span>🔑</span>
-          <span class="hidden sm:inline">AI Key Settings</span>
+          <span>☁️</span>
+          <span class="hidden sm:inline">AI Settings</span>
           <span id="apiKeyStatusDot" class="w-2 h-2 rounded-full bg-slate-500 inline-block"></span>
         </button>
 
@@ -500,8 +500,8 @@
           <div class="flex flex-wrap items-center gap-2.5 self-start md:self-auto">
             <button type="button" id="configKeyBtn"
               class="px-3.5 py-2 rounded-xl bg-vedic-night border border-vedic-border hover:border-vedic-gold/50 text-xs font-semibold text-slate-300 hover:text-amber-200 transition-all flex items-center gap-1.5">
-              <span>⚙️</span>
-              <span id="apiKeyBtnText">Configure API Key</span>
+              <span>☁️</span>
+              <span id="apiKeyBtnText">Configure Cloud AI</span>
             </button>
             <button type="button" id="runAiAnalysisBtn"
               class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-vedic-gold to-amber-500 hover:brightness-110 text-vedic-night font-bold text-xs shadow-lg shadow-amber-500/20 transition-all flex items-center gap-2">
@@ -520,8 +520,7 @@
             <div class="space-y-1">
               <p class="font-semibold text-amber-200">🚀 Ready for AI Synthesis</p>
               <p class="text-slate-400">
-                Enter Bride & Groom birth dates and gothras, then click <strong>Generate AI Reading</strong>. You can
-                use your own free Google Gemini API key or preview a sample analysis.
+                Enter Bride &amp; Groom birth details and gothras, then click <strong>Generate AI Reading</strong> for a personalized Vedic synthesis powered by Google Gemini via Cloudflare Worker.
               </p>
             </div>
             <button type="button" id="aiAnalyzeBtn"
@@ -794,50 +793,50 @@
     </div>
   </footer>
 
-  <!-- API KEY SETTINGS MODAL -->
+  <!-- AI CONNECTION SETTINGS MODAL -->
   <div id="apiKeyModal" role="dialog" aria-modal="true" aria-labelledby="apiKeyModalTitle"
     class="hidden fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm transition-all">
-    <div class="w-full max-w-lg bg-[#0e1630] border border-amber-500/40 rounded-2xl p-6 shadow-2xl space-y-4 relative">
+    <div class="w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[#0e1630] border border-amber-500/40 rounded-2xl p-6 shadow-2xl space-y-4 relative">
       <div class="flex items-center justify-between border-b border-vedic-border/70 pb-3">
         <h4 id="apiKeyModalTitle" class="font-cinzel font-bold text-amber-200 text-base flex items-center gap-2">
-          <span>🔑</span> Google Gemini API Key
+          <span>☁️</span> Cloud AI Connection Settings
         </h4>
-        <button type="button" id="closeApiKeyModalBtn" aria-label="Close API Key settings"
+        <button type="button" id="closeApiKeyModalBtn" aria-label="Close AI connection settings"
           class="text-slate-400 hover:text-white text-xl font-bold px-2 py-0.5 rounded-lg hover:bg-slate-800 transition-colors">&times;</button>
       </div>
 
       <div class="text-xs text-slate-300 space-y-2.5">
         <p>
-          To generate live AI astrological readings directly in your browser without a backend server, provide your free
-          Google Gemini API key.
+          Host safely on <strong>GitHub Pages</strong> using a free <strong>Cloudflare Worker proxy</strong> so your Gemini API key stays locked on Cloudflare's server — no need to enter an API key again!
         </p>
-        <div class="p-3 rounded-xl bg-vedic-night/90 border border-vedic-border space-y-1.5 text-slate-300 text-[11px]">
-          <p class="font-semibold text-amber-300">How to get a 100% Free Gemini API Key:</p>
+        <div class="p-3 rounded-xl bg-vedic-night/90 border border-vedic-border space-y-1 text-slate-300 text-[11px]">
+          <p class="font-semibold text-amber-300">One-Time Permanent Setup (GitHub Pages):</p>
           <ol class="list-decimal list-inside space-y-1 text-slate-400">
-            <li>Visit <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer"
-                class="text-amber-300 underline font-semibold">Google AI Studio (aistudio.google.com)</a></li>
-            <li>Sign in with your Google account and click <strong>Create API Key</strong></li>
-            <li>Copy the key, paste it below, and click <strong>Test Key</strong> or <strong>Save Settings</strong>.</li>
+            <li>Deploy <code class="text-amber-200 font-mono">cloudflare_gemini_worker.js</code> in your Cloudflare Dashboard.</li>
+            <li>Add secret <code class="text-amber-200 font-mono">GEMINI_API_KEY</code> and variable <code class="text-amber-200 font-mono">ALLOWED_ORIGINS</code> (<code class="text-slate-300 font-mono">https://&lt;username&gt;.github.io</code>).</li>
+            <li>Paste the <code class="text-amber-200 font-mono">*.workers.dev</code> URL below <em>or</em> hardcode it into <code class="text-amber-200 font-mono">CLOUDFLARE_WORKER_URL</code> in this HTML file so every device works automatically.</li>
           </ol>
         </div>
-        <p class="text-[11px] text-emerald-300/90 flex items-center gap-1.5">
-          <span>🔒</span> Stored locally in your browser and sent only to Google's official Gemini API endpoint via HTTPS header.
-        </p>
       </div>
 
       <div class="space-y-3">
         <div>
-          <label for="geminiApiKeyInput" class="block text-xs font-semibold text-slate-300 mb-1">
-            Gemini API Key
+          <label for="workerUrlInput" class="block text-xs font-semibold text-slate-300 mb-1">
+            Cloudflare Worker Proxy URL
           </label>
-          <div class="flex items-center gap-2">
-            <input type="password" id="geminiApiKeyInput" placeholder="AIzaSy..." autocomplete="off" spellcheck="false"
-              class="flex-1 bg-vedic-night border border-vedic-border rounded-xl px-3.5 py-2 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-vedic-gold font-mono">
-            <button type="button" id="toggleApiKeyVisibilityBtn"
-              class="px-3 py-2 rounded-xl bg-vedic-card hover:bg-slate-800 border border-vedic-border text-xs font-semibold text-slate-300 hover:text-amber-200 transition-colors">
-              Show
-            </button>
-          </div>
+          <input type="url" id="workerUrlInput" placeholder="https://vivaha-guna-padaka.k-dheeraj99.workers.dev"
+            autocomplete="off" spellcheck="false"
+            class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3.5 py-2 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-vedic-gold font-mono">
+          <p id="workerDefaultHint" class="hidden mt-1 text-[11px] text-emerald-300/90 font-mono"></p>
+        </div>
+
+        <div>
+          <label for="workerAccessCodeInput" class="block text-xs font-semibold text-slate-300 mb-1">
+            Worker Access Code <span class="text-slate-500 font-normal">(optional — only if ACCESS_CODE secret is enabled on Worker)</span>
+          </label>
+          <input type="password" id="workerAccessCodeInput" placeholder="Leave blank if not required"
+            autocomplete="off" spellcheck="false"
+            class="w-full bg-vedic-night border border-vedic-border rounded-xl px-3.5 py-2 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-vedic-gold font-mono">
         </div>
 
         <div>
@@ -853,18 +852,37 @@
           </select>
         </div>
 
+        <details class="rounded-xl bg-vedic-night/70 border border-vedic-border/70 p-3 text-xs">
+          <summary class="cursor-pointer font-semibold text-slate-400 hover:text-amber-200 select-none">
+            Local Offline Fallback (Direct API Key — memory only for this tab)
+          </summary>
+          <div class="mt-2.5 space-y-2">
+            <p class="text-[11px] text-slate-400">
+              Handy only when opening this file directly from disk (<code class="font-mono">file://</code>) before deploying your Cloudflare Worker. Not stored in browser storage.
+            </p>
+            <div class="flex items-center gap-2">
+              <input type="password" id="geminiApiKeyInput" placeholder="AIzaSy... (session only)" autocomplete="off" spellcheck="false"
+                class="flex-1 bg-vedic-night border border-vedic-border rounded-xl px-3.5 py-2 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-vedic-gold font-mono">
+              <button type="button" id="toggleApiKeyVisibilityBtn"
+                class="px-3 py-2 rounded-xl bg-vedic-card hover:bg-slate-800 border border-vedic-border text-xs font-semibold text-slate-300 hover:text-amber-200 transition-colors">
+                Show
+              </button>
+            </div>
+          </div>
+        </details>
+
         <div id="apiKeyModalStatus" class="hidden" role="status" aria-live="polite"></div>
       </div>
 
       <div class="pt-3 border-t border-vedic-border/70 flex items-center justify-between gap-3">
         <button type="button" id="clearApiKeyBtn"
           class="px-3 py-2 rounded-xl bg-rose-950/40 hover:bg-rose-900/60 border border-rose-800 text-rose-300 text-xs font-medium transition-all">
-          Clear Key
+          Reset
         </button>
         <div class="flex items-center gap-2">
           <button type="button" id="testApiKeyBtn"
             class="px-3.5 py-2 rounded-xl bg-vedic-card hover:bg-slate-800 border border-vedic-border text-slate-300 text-xs font-medium transition-all">
-            Test Key
+            Test Connection
           </button>
           <button type="button" id="saveApiKeyBtn"
             class="px-5 py-2 rounded-xl bg-gradient-to-r from-vedic-gold to-amber-500 text-vedic-night text-xs font-bold shadow-md hover:brightness-110 transition-all">
@@ -1486,8 +1504,13 @@ Source: Ontikoppal Panchanga 2026-27 (Page 88)`;
 
 
     // ==========================================
-    // GEMINI AI INTEGRATION & KEY MANAGEMENT
+    // GEMINI AI INTEGRATION (CLOUDFLARE PROXY)
     // ==========================================
+    // 1. Deploy `cloudflare_gemini_worker.js` to Cloudflare Workers & add your GEMINI_API_KEY secret there.
+    // 2. Paste your deployed Worker URL below once (e.g. 'https://vivaha-gemini-proxy.yourname.workers.dev').
+    //    Once pasted and pushed to GitHub Pages, AI readings work on every device with zero API key setup!
+    const CLOUDFLARE_WORKER_URL = 'https://vivaha-guna-padaka.k-dheeraj99.workers.dev';
+
     const ALLOWED_GEMINI_MODELS = [
       'gemini-3.8-flash',
       'gemini-3.5-flash-lite',
@@ -1497,9 +1520,9 @@ Source: Ontikoppal Panchanga 2026-27 (Page 88)`;
     const DEFAULT_GEMINI_MODEL = 'gemini-3.8-flash';
     const GEMINI_INTERACTIONS_URL = 'https://generativelanguage.googleapis.com/v1beta/interactions';
 
-    // In-memory state ensures the key works even when opened via file:// where localStorage may be restricted.
-    // TODO(security): This is a serverless static HTML page using a Bring-Your-Own-Key (BYOK) flow.
-    // If deployed behind a backend in the future, move Gemini API calls to a BFF server instead of browser storage.
+    // Non-secret config (Worker URL & model) persists in localStorage; optional secrets stay strictly in JS memory.
+    let activeWorkerUrl = '';
+    let activeAccessCode = '';
     let activeApiKey = '';
     let activeModel = DEFAULT_GEMINI_MODEL;
 
@@ -1509,6 +1532,9 @@ Source: Ontikoppal Panchanga 2026-27 (Page 88)`;
     const configKeyBtn = document.getElementById('configKeyBtn');
     const apiKeyBtnText = document.getElementById('apiKeyBtnText');
     const apiKeyStatusDot = document.getElementById('apiKeyStatusDot');
+    const workerUrlInput = document.getElementById('workerUrlInput');
+    const workerDefaultHint = document.getElementById('workerDefaultHint');
+    const workerAccessCodeInput = document.getElementById('workerAccessCodeInput');
     const geminiApiKeyInput = document.getElementById('geminiApiKeyInput');
     const toggleApiKeyVisibilityBtn = document.getElementById('toggleApiKeyVisibilityBtn');
     const geminiModelSelect = document.getElementById('geminiModelSelect');
@@ -1528,6 +1554,27 @@ Source: Ontikoppal Panchanga 2026-27 (Page 88)`;
 
     function normalizeModel(modelId) {
       return ALLOWED_GEMINI_MODELS.includes(modelId) ? modelId : DEFAULT_GEMINI_MODEL;
+    }
+
+    function normalizeWorkerUrl(rawUrl) {
+      const trimmed = (rawUrl || '').trim();
+      if (!trimmed) return '';
+      try {
+        const parsed = new URL(trimmed);
+        const isLocalhost = parsed.hostname === '127.0.0.1' || parsed.hostname === 'localhost';
+        if (parsed.protocol !== 'https:' && !(parsed.protocol === 'http:' && isLocalhost)) {
+          return '';
+        }
+        parsed.hash = '';
+        parsed.search = '';
+        return parsed.toString().replace(/\/+$/, '');
+      } catch {
+        return '';
+      }
+    }
+
+    function getEffectiveWorkerUrl() {
+      return normalizeWorkerUrl(activeWorkerUrl) || normalizeWorkerUrl(CLOUDFLARE_WORKER_URL);
     }
 
     function extractInteractionText(data) {
@@ -1555,6 +1602,48 @@ Source: Ontikoppal Panchanga 2026-27 (Page 88)`;
       }
       const legacyParts = data?.candidates?.[0]?.content?.parts || [];
       return legacyParts.map(p => p.text || '').join('');
+    }
+
+    async function callCloudflareProxy(workerUrl, model, inputText, accessCode = '') {
+      const safeUrl = normalizeWorkerUrl(workerUrl);
+      if (!safeUrl) {
+        throw new Error('Invalid Cloudflare Worker URL. Must start with https://');
+      }
+      const safeModel = normalizeModel(model);
+      const headers = {
+        'Content-Type': 'application/json'
+      };
+      if (accessCode) {
+        headers['X-Access-Code'] = accessCode;
+      }
+
+      let resp;
+      try {
+        resp = await fetch(safeUrl, {
+          method: 'POST',
+          headers,
+          body: JSON.stringify({
+            model: safeModel,
+            input: inputText
+          })
+        });
+      } catch (networkErr) {
+        if (window.location.protocol === 'file:') {
+          throw new Error(
+            'Blocked by CORS when opened directly via file://. Open via your GitHub Pages URL (or http://127.0.0.1:8000 listed in ALLOWED_ORIGINS), or use the Local Fallback API Key below.'
+          );
+        }
+        throw new Error('Could not reach Cloudflare Worker. Check the Worker URL and ALLOWED_ORIGINS setting.');
+      }
+
+      const data = await resp.json().catch(() => ({}));
+      if (!resp.ok) {
+        const err = new Error(data.error || `Worker proxy error (HTTP ${resp.status})`);
+        err.status = resp.status;
+        throw err;
+      }
+
+      return (typeof data.text === 'string' && data.text) ? data.text : extractInteractionText(data);
     }
 
     async function callGeminiInteractionsApi(key, model, inputText, systemInstruction = '') {
@@ -1603,60 +1692,84 @@ Source: Ontikoppal Panchanga 2026-27 (Page 88)`;
     }
 
     function openApiKeyModal() {
+      const builtinUrl = normalizeWorkerUrl(CLOUDFLARE_WORKER_URL);
+      workerUrlInput.value = activeWorkerUrl || builtinUrl;
+      if (workerDefaultHint) {
+        if (builtinUrl) {
+          workerDefaultHint.textContent = `Built-in GitHub Pages proxy configured: ${builtinUrl}`;
+          workerDefaultHint.classList.remove('hidden');
+        } else {
+          workerDefaultHint.classList.add('hidden');
+        }
+      }
+      workerAccessCodeInput.value = activeAccessCode;
       geminiApiKeyInput.value = activeApiKey;
       geminiModelSelect.value = normalizeModel(activeModel);
       apiKeyModal.classList.remove('hidden');
-      setTimeout(() => geminiApiKeyInput.focus(), 50);
+      setTimeout(() => {
+        if (!getEffectiveWorkerUrl()) {
+          workerUrlInput.focus();
+        }
+      }, 50);
     }
 
     function closeApiKeyModal() {
       apiKeyModal.classList.add('hidden');
       geminiApiKeyInput.type = 'password';
+      workerAccessCodeInput.type = 'password';
       if (toggleApiKeyVisibilityBtn) {
         toggleApiKeyVisibilityBtn.textContent = 'Show';
       }
       setModalStatus('');
     }
 
-    function persistKeySettings(key, model) {
-      activeApiKey = key;
+    function persistAiSettings({ workerUrl, accessCode, sessionKey, model }) {
+      const builtinUrl = normalizeWorkerUrl(CLOUDFLARE_WORKER_URL);
+      const normalizedCustom = normalizeWorkerUrl(workerUrl);
+      activeWorkerUrl = (normalizedCustom && normalizedCustom !== builtinUrl) ? normalizedCustom : '';
+      activeAccessCode = (accessCode || '').trim();
+      activeApiKey = (sessionKey || '').trim();
       activeModel = normalizeModel(model);
-      let persistedToStorage = false;
+
       try {
-        if (key) {
-          localStorage.setItem('gemini_api_key', key);
+        if (activeWorkerUrl) {
+          localStorage.setItem('cloudflare_worker_url', activeWorkerUrl);
         } else {
-          localStorage.removeItem('gemini_api_key');
+          localStorage.removeItem('cloudflare_worker_url');
         }
         localStorage.setItem('gemini_model', activeModel);
-        persistedToStorage = true;
+        // Remove any legacy browser-stored API key now that Cloudflare Worker BFF proxy handles secrets.
+        localStorage.removeItem('gemini_api_key');
       } catch (e) {
-        // Storage blocked (e.g., strict file:// privacy mode); in-memory key remains active for this session.
+        // Storage unavailable; in-memory state remains active for this session.
       }
-      updateKeyStatusUI(Boolean(key));
-      return persistedToStorage;
+      updateConnectionStatusUI();
     }
 
-    function loadSavedApiKey() {
+    function loadSavedAiSettings() {
       try {
-        activeApiKey = (localStorage.getItem('gemini_api_key') || '').trim();
+        activeWorkerUrl = normalizeWorkerUrl(localStorage.getItem('cloudflare_worker_url') || '');
         activeModel = normalizeModel(localStorage.getItem('gemini_model') || DEFAULT_GEMINI_MODEL);
+        localStorage.removeItem('gemini_api_key');
       } catch (e) {
-        activeApiKey = '';
+        activeWorkerUrl = '';
         activeModel = DEFAULT_GEMINI_MODEL;
       }
-      geminiApiKeyInput.value = activeApiKey;
       geminiModelSelect.value = activeModel;
-      updateKeyStatusUI(Boolean(activeApiKey));
+      updateConnectionStatusUI();
     }
 
-    function updateKeyStatusUI(hasKey) {
-      if (hasKey) {
+    function updateConnectionStatusUI() {
+      const effectiveWorkerUrl = getEffectiveWorkerUrl();
+      if (effectiveWorkerUrl) {
         apiKeyStatusDot.className = 'w-2 h-2 rounded-full bg-emerald-400 inline-block';
-        apiKeyBtnText.textContent = 'API Key Configured ✅';
+        apiKeyBtnText.textContent = 'Cloud AI Ready ✅';
+      } else if (activeApiKey) {
+        apiKeyStatusDot.className = 'w-2 h-2 rounded-full bg-emerald-400 inline-block';
+        apiKeyBtnText.textContent = 'Session Key Active ✅';
       } else {
         apiKeyStatusDot.className = 'w-2 h-2 rounded-full bg-amber-400 inline-block';
-        apiKeyBtnText.textContent = 'Configure API Key';
+        apiKeyBtnText.textContent = 'Configure Cloud AI';
       }
     }
 
@@ -1682,72 +1795,119 @@ Source: Ontikoppal Panchanga 2026-27 (Page 88)`;
       toggleApiKeyVisibilityBtn.textContent = isHidden ? 'Hide' : 'Show';
     });
 
-    geminiApiKeyInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        saveApiKeyBtn.click();
-      }
-    });
-
     saveApiKeyBtn.addEventListener('click', () => {
-      const key = geminiApiKeyInput.value.trim();
-      const model = normalizeModel(geminiModelSelect.value);
-      const persisted = persistKeySettings(key, model);
-      if (key) {
-        showToast(persisted ? 'API Key & model saved!' : 'API Key active for this session!');
+      const rawUrl = workerUrlInput.value.trim();
+      if (rawUrl && !normalizeWorkerUrl(rawUrl)) {
+        setModalStatus('Worker URL must be a valid https:// URL (e.g. https://vivaha-gemini-proxy.name.workers.dev).', 'error');
+        workerUrlInput.focus();
+        return;
+      }
+
+      persistAiSettings({
+        workerUrl: rawUrl,
+        accessCode: workerAccessCodeInput.value,
+        sessionKey: geminiApiKeyInput.value,
+        model: geminiModelSelect.value
+      });
+
+      if (getEffectiveWorkerUrl()) {
+        showToast('Cloudflare AI settings saved!');
+      } else if (activeApiKey) {
+        showToast('Local session key saved for this tab!');
       } else {
-        showToast('Settings updated (no API key set).');
+        showToast('AI model preference saved.');
       }
       closeApiKeyModal();
     });
 
     clearApiKeyBtn.addEventListener('click', () => {
+      workerUrlInput.value = normalizeWorkerUrl(CLOUDFLARE_WORKER_URL);
+      workerAccessCodeInput.value = '';
       geminiApiKeyInput.value = '';
-      persistKeySettings('', geminiModelSelect.value);
-      setModalStatus('API Key cleared.', 'info');
-      showToast('API Key removed.');
+      persistAiSettings({
+        workerUrl: '',
+        accessCode: '',
+        sessionKey: '',
+        model: geminiModelSelect.value
+      });
+      setModalStatus(
+        normalizeWorkerUrl(CLOUDFLARE_WORKER_URL)
+          ? 'Custom overrides cleared (reverted to built-in Cloudflare Worker URL).'
+          : 'Cleared custom Worker URL and session credentials.',
+        'info'
+      );
+      showToast('AI connection settings reset.');
     });
 
     testApiKeyBtn.addEventListener('click', async () => {
-      const key = geminiApiKeyInput.value.trim();
+      const rawUrl = workerUrlInput.value.trim();
+      const accessCode = workerAccessCodeInput.value.trim();
+      const sessionKey = geminiApiKeyInput.value.trim();
       const model = normalizeModel(geminiModelSelect.value);
-      if (!key) {
-        setModalStatus('Please paste your Gemini API key first.', 'warn');
-        geminiApiKeyInput.focus();
+
+      if (rawUrl && !normalizeWorkerUrl(rawUrl)) {
+        setModalStatus('Worker URL must start with https:// (or http://127.0.0.1 for local testing).', 'error');
+        workerUrlInput.focus();
+        return;
+      }
+
+      const candidateWorkerUrl = normalizeWorkerUrl(rawUrl) || normalizeWorkerUrl(CLOUDFLARE_WORKER_URL);
+      const useLocalKey = Boolean(sessionKey) && (!candidateWorkerUrl || window.location.protocol === 'file:');
+
+      if (!candidateWorkerUrl && !sessionKey) {
+        setModalStatus('Paste your Cloudflare Worker URL above (or a temporary session key in the fallback section).', 'warn');
+        workerUrlInput.focus();
         return;
       }
 
       testApiKeyBtn.disabled = true;
       testApiKeyBtn.textContent = 'Testing...';
-      setModalStatus(`Testing connection with ${model}...`, 'info');
+      setModalStatus(`Testing ${useLocalKey ? 'direct Gemini session key' : 'Cloudflare Worker proxy'} with ${model}...`, 'info');
 
       try {
-        await callGeminiInteractionsApi(key, model, 'Respond with the word "CONNECTED" in all caps.');
-        persistKeySettings(key, model);
-        setModalStatus(`API Key verified with ${model} and saved! You can close this window and generate readings. ✅`, 'success');
-        showToast('API Key verified and saved! ✅');
+        if (useLocalKey) {
+          await callGeminiInteractionsApi(sessionKey, model, 'Respond with the word "CONNECTED" in all caps.');
+        } else {
+          await callCloudflareProxy(candidateWorkerUrl, model, 'Respond with the word "CONNECTED" in all caps.', accessCode);
+        }
+
+        persistAiSettings({
+          workerUrl: rawUrl,
+          accessCode,
+          sessionKey,
+          model
+        });
+        setModalStatus(
+          `Verified ${useLocalKey ? 'session key' : 'Cloudflare Worker'} with ${model} and saved! ✅`,
+          'success'
+        );
+        showToast('AI connection verified! ✅');
       } catch (err) {
         setModalStatus(`Error: ${err.message}`, 'error');
-        showToast('API Key test failed. Check message in dialog.');
+        showToast('Connection test failed. See details in dialog.');
       } finally {
         testApiKeyBtn.disabled = false;
-        testApiKeyBtn.textContent = 'Test Key';
+        testApiKeyBtn.textContent = 'Test Connection';
       }
     });
 
     // Run Live AI Analysis
     runAiAnalysisBtn.addEventListener('click', async () => {
-      const key = activeApiKey || geminiApiKeyInput.value.trim();
+      const workerUrl = getEffectiveWorkerUrl();
+      const sessionKey = activeApiKey || geminiApiKeyInput.value.trim();
       const model = normalizeModel(activeModel || geminiModelSelect.value);
 
-      if (!key) {
+      if (!workerUrl && !sessionKey) {
         openApiKeyModal();
-        setModalStatus('Please paste your free Google Gemini API key below to generate a live AI reading.', 'warn');
-        showToast('Please configure your Gemini API key first.');
+        setModalStatus(
+          'Deploy cloudflare_gemini_worker.js and set your Worker URL once so you never have to enter an API key again.',
+          'warn'
+        );
+        showToast('Configure Cloudflare Worker URL first.');
         return;
       }
 
-      await executeAiAstrologicalQuery(key, model);
+      await executeAiAstrologicalQuery({ workerUrl, sessionKey, model });
     });
 
     demoAnalysisBtn.addEventListener('click', () => {
@@ -1760,7 +1920,7 @@ Source: Ontikoppal Panchanga 2026-27 (Page 88)`;
       });
     }
 
-    async function executeAiAstrologicalQuery(key, model) {
+    async function executeAiAstrologicalQuery({ workerUrl, sessionKey, model }) {
       aiEmptyPromptState.classList.add('hidden');
       aiReportBox.classList.add('hidden');
       aiLoadingState.classList.remove('hidden');
@@ -1824,15 +1984,24 @@ Analyze the mental connection, Graha Maitri (planetary friendship between moon l
 5. ### 🕉️ Traditional Pariharas & Auspicious Guidance
 Provide 2-3 authentic South Indian / Karnataka Vedic pariharas (remedies), suggested deities to worship (e.g., Sri Lakshmi Narasimha, Subrahmanya, or Parvati-Parameshwara), and practical advice for marital prosperity.`;
 
-      try {
-        const outputText = await callGeminiInteractionsApi(key, safeModel, prompt, systemInstruction)
-          || 'No response returned from the AI model.';
+      const useLocalKey = Boolean(sessionKey) && (!workerUrl || window.location.protocol === 'file:');
 
-        aiReportBadge.textContent = safeModel;
+      try {
+        const outputText = (useLocalKey
+          ? await callGeminiInteractionsApi(sessionKey, safeModel, prompt, systemInstruction)
+          : await callCloudflareProxy(workerUrl, safeModel, prompt, activeAccessCode)
+        ) || 'No response returned from the AI model.';
+
+        aiReportBadge.textContent = useLocalKey ? `${safeModel} (Local)` : `${safeModel} · Cloud Proxy`;
         renderFormattedAiReport(outputText);
       } catch (err) {
         aiLoadingState.classList.add('hidden');
         aiEmptyPromptState.classList.remove('hidden');
+        if (err && err.status === 401) {
+          openApiKeyModal();
+          setModalStatus('This Cloudflare Worker requires an Access Code. Enter it below and click Save Settings.', 'warn');
+          workerAccessCodeInput.focus();
+        }
         showToast(`AI Analysis failed: ${err.message}`);
       }
     }
@@ -2019,8 +2188,8 @@ In Vedic lineage science, different gothras foster genetic vitality, while share
       }
     });
 
-    // Load saved key on page load
-    loadSavedApiKey();
+    // Load saved Cloudflare proxy / model settings on page load
+    loadSavedAiSettings();
     // Initial Load
     initSelectors();
     renderMatrix();
